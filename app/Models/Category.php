@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['category', 'store_id'];
+
+
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
 }

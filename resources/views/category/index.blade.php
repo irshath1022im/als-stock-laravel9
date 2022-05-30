@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+@component('components.alert')
+        
+@endcomponent
     
-welcome to category index page
+    @livewire('category.index')
+
 @endsection
