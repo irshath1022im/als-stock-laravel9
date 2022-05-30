@@ -69,6 +69,10 @@ class CreateItem extends Component
                 'category_id' => 'required',
             ]);
 
+            $fileExtention = $this->thumbnail->getClientOriginalExtension();
+
+        $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item.'.'.$fileExtention);
+
               
 
             Item::where('id', $this->item_id)
@@ -99,6 +103,7 @@ class CreateItem extends Component
     public function mount($item)
     {
         $this->categories = Category::get();
+
         if($item)
         {
             $this->item_id = $item->id;
