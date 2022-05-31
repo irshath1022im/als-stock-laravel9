@@ -43,7 +43,8 @@
         </div>
 
 
--      
+        <div wire:loading wire:target="thumbnail">Uploading...</div>
+      
       @if($mode == 'edit')
 
                 <strong>{{ $filePath }}</strong>
@@ -51,10 +52,16 @@
         
                 <img src="{{ Storage::url($filePath) }}" class="w-25">
 
-                @endif
+        @endif
+
+        @isset($thumbnail)
+            <div style="width: 100px;" >
+                <img src="{{ $thumbnail->temporaryUrl()}}" class="img-fluid" >
+            </div>
+
+        @endisset
 
                 <div class="mb-3">
-                    <label for="" class="form-label">Thumbnail</label>
                     <input type="file" class="form-control" wire:model="thumbnail">
 
                     @error('thumbnail')
@@ -70,11 +77,7 @@
                        
                           
 {{--                       
-                            @isset($thumbnail->temporaryUrl())
-
-                                   <img src="{{ $thumbnail->temporaryUrl()}}" class="w-25">
-
-                            @else
+                            
 
                             <img src="{{ Storage::url($filePath) }}" class="w-25">
 
@@ -92,10 +95,10 @@
 
         @if ($mode !== 'edit')
   
-            <button type="btn" class="btn btn-primary"  wire:click.prevent = "AddNewItem" > Submit</button>
+            <button type="btn" class="btn btn-primary"  wire:click.prevent = "AddNewItem" wire:target="thumbnail" wire:loading.attr="disabled"> Submit</button>
 
        @else
-             <button type="btn" class="btn btn-primary"  wire:click.prevent = "UpdateItem"> Update</button>
+             <button type="btn" class="btn btn-primary"  wire:click.prevent = "UpdateItem"  wire:target="thumbnail" wire:loading.attr="disabled"> Update</button>
        @endif
     
 

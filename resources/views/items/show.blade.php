@@ -11,7 +11,7 @@
 
        <div class="col-sm-3 border border-info">
            <h4 class="text-center text-uppercase">{{ $item->item }} </h4>
-           {{ $item->thumbnail }}
+           {{-- {{ $item->thumbnail }} --}}
             <img src= {{  Storage::url($item->thumbnail) }} class="img-fluid" class="w-25"/>
        </div>
 

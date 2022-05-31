@@ -59,7 +59,7 @@ class CreateItem extends Component
 
 
              session()->flash('created', 'Item Has been added');
-            //  redirect('items/'.$result->id.' ');
+             redirect('items/'.$result->id.' ');
 
         
 
@@ -69,12 +69,12 @@ class CreateItem extends Component
     public function UpdateItem()
     {
 
-            $this->validate([
+          $this->validate([
                 'item'=>'required',
                 'category_id' => 'required',
             ]);
 
-            $fileExtention = $this->thumbnail->getClientOriginalExtension();
+        $fileExtention = $this->thumbnail->getClientOriginalExtension();
 
         $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item_id.'.'.$fileExtention);
 
@@ -94,15 +94,15 @@ class CreateItem extends Component
 
     }
 
-    public function updatedThumbnail()
-    {
+    // public function updatedThumbnail()
+    // {
 
-        $fileExtention = $this->thumbnail->getClientOriginalExtension();
+    //     $fileExtention = $this->thumbnail->getClientOriginalExtension();
 
-        $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item.'.'.$fileExtention);
+    //     $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item.'.'.$fileExtention);
 
         
-    }
+    // }
 
 
     public function mount($item)
