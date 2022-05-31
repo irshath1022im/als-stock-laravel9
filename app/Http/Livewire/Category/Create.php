@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Category;
 
 use App\Models\Category;
+use App\Models\Store;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
@@ -10,6 +11,7 @@ use Livewire\Component;
 class Create extends Component
 {
 
+    public $stores;
     public $category;
     public $store_id;
     public $editMode = false;
@@ -88,6 +90,10 @@ class Create extends Component
 
     }
 
+    public function mount()
+    {
+        $this->stores = Store::get();
+    }
 
     public function render()
     {

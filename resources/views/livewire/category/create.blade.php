@@ -29,8 +29,11 @@
             <label for="" class="form-label">Store</label>
             <select class="form-control" name="" id="" wire:model.defer="store_id">
             <option value="">Select</option>
-            <option value="1">Uniform</option>
-            <option value="2">Promotional Items</option>
+                @foreach ($stores as $item)
+                <option value="{{ $item->id }}">{{ $item->store }}</option>
+                @endforeach
+
+
             </select>
         </div>
 
@@ -42,7 +45,7 @@
     @enderror
 
         @if ($editMode)
-            <button type="button" class="btn btn-primary" wire:click="formUpdateRequest">Edit</button>
+            <button type="button" class="btn btn-primary" wire:click="formUpdateRequest">UPDATE</button>
 
         @else
             
