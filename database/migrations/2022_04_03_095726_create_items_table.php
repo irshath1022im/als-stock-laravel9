@@ -14,6 +14,7 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
+            $table->engine = 'MyISAM';
             $table->id();
             $table->string('item');
             $table->string('thumbnail')->nullable();

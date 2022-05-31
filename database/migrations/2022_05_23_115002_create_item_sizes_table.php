@@ -14,6 +14,7 @@ class CreateItemSizesTable extends Migration
     public function up()
     {
         Schema::create('item_sizes', function (Blueprint $table) {
+            $table->engine = 'MyISAM';
             $table->id();
             $table->string('size');
             $table->timestamps();

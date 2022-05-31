@@ -14,6 +14,7 @@ class CreatePersonalAccessTokensTable extends Migration
     public function up()
     {
         Schema::create('personal_access_tokens', function (Blueprint $table) {
+            $table->engine = 'MyISAM';
             $table->id();
             $table->morphs('tokenable');
             $table->string('name');

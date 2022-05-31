@@ -14,6 +14,7 @@ class CreateStoresTable extends Migration
     public function up()
     {
         Schema::create('stores', function (Blueprint $table) {
+            $table->engine = 'MyISAM';
             $table->id();
             $table->string('store');
             $table->string('thumbnail')->nullable();
