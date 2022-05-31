@@ -37,24 +37,29 @@ class CreateItem extends Component
        
         // dd($fileExtention);
 
-       $validated = $this->validate();
+                 $validated = $this->validate();
+
+                 $data = [
+                    'item' => $this->item,
+                    'category_id' => $this->category_id,
+                    'thumbnail' => ''
+                ];
+
+                 $result = Item::create($data);
+
 
 
               $fileExtention = $this->thumbnail->getClientOriginalExtension();
 
-             $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item.'.'.$fileExtention);
+             $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $result->id.'.'.$fileExtention);
+
+                Item::where('id' , $result->id)
+                        ->update(['thumbnail' => $this->filePath]);
 
 
-            $data = [
-                'item' => $this->item,
-                'category_id' => $this->category_id,
-                'thumbnail' => $this->filePath
-            ];
-
-            $result = Item::create($data);
 
              session()->flash('created', 'Item Has been added');
-             redirect('items/'.$result->id.' ');
+            //  redirect('items/'.$result->id.' ');
 
         
 
@@ -71,7 +76,7 @@ class CreateItem extends Component
 
             $fileExtention = $this->thumbnail->getClientOriginalExtension();
 
-        $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item.'.'.$fileExtention);
+        $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item_id.'.'.$fileExtention);
 
               
 
