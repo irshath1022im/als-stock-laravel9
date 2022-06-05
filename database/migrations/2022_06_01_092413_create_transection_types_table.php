@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemSizesTable extends Migration
+class CreateTransectionTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateItemSizesTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_sizes', function (Blueprint $table) {
+        Schema::create('transection_types', function (Blueprint $table) {
             $table->engine = 'MyISAM';
             $table->id();
-            $table->unsignedBigInteger('item_id');
-            $table->string('size');
+            $table->string('type');
             $table->timestamps();
-
-            $table->foreign('item_id')->references('id')->on('items');
         });
     }
 
@@ -31,6 +28,6 @@ class CreateItemSizesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_sizes');
+        Schema::dropIfExists('transection_types');
     }
 }

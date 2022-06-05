@@ -11,4 +11,14 @@ class Item extends Model
 
     protected $fillable = ['item', 'category_id', 'thumbnail'];
 
+    public function itemSize()
+    {
+        return $this->hasMany(ItemSize::class);
+    }
+
+    public function transectionLogs()
+    {
+        return $this->hasMany(ItemTransectionLog::class);
+    }
+
 }

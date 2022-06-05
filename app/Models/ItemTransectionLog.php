@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ItemSize extends Model
+class ItemTransectionLog extends Model
 {
     use HasFactory;
-
 
     public function item()
     {
         return $this->belongsTo(Item::class);
     }
 
-    public function itemSizeTransections()
+    public function itemSize()
     {
-        return $this->hasMany(ItemTransectionLog::class);
+        return $this->belongsTo(ItemSize::class);
     }
-
 }
