@@ -20,7 +20,7 @@ class Index extends Component
     {
         $result = Category::with('store')
                         ->orderByDesc('id')
-                        ->paginate(5);
+                        ->paginate(10);
         return view('livewire.category.index',['categories' => $result]);
     }
 }
