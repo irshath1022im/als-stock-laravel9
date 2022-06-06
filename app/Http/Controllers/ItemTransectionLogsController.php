@@ -56,8 +56,10 @@ class ItemTransectionLogsController extends Controller
         //                             ->groupBy('item_size')
         //                             ->get();
 
-        return Item::with('itemSize')
-                            ->findOrFail($id);
+        // return Item::with('itemSize')
+        //                     ->findOrFail($id);
+
+        // return ItemTransectionLog::where('item_id', $id)
 
         
 
@@ -98,4 +100,14 @@ class ItemTransectionLogsController extends Controller
     {
         //
     }
+
+
+    public function searchByItemIDSize($item_id, $size_id)
+    {
+        return ItemTransectionLog::where('item_id', $item_id)
+                                    ->where('item_size', $size_id)
+                                    ->sum('qty');
+                                    // ->get();
+    }
+
 }

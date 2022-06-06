@@ -19,12 +19,12 @@ class CreateItemTransectionLogsTable extends Migration
             $table->date('date');
             $table->unsignedBigInteger('transection_type');
             $table->unsignedBigInteger('item_id');
-            $table->unsignedBigInteger('item_size');
+            $table->unsignedBigInteger('size_id');
             $table->integer('qty');
             $table->text('remark')->nullable();
 
             $table->foreign('item_id')->references('id')->on('items');
-            $table->foreign('item_size')->references('id')->on('item_sizes');
+            $table->foreign('size_id')->references('id')->on('sizes');
             $table->foreign('transection_type')->references('id')->on('transection_types');
             $table->timestamps();
         });

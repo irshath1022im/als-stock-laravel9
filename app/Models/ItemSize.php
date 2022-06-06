@@ -9,15 +9,20 @@ class ItemSize extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['item_id', 'size_id'];
+
 
     public function item()
     {
         return $this->belongsTo(Item::class);
     }
 
-    public function itemSizeTransections()
+
+    public function size()
     {
-        return $this->hasMany(ItemTransectionLog::class);
+        return $this->belongsTo(Size::class);
     }
+
+  
 
 }

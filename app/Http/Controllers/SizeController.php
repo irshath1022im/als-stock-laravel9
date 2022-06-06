@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
 use Illuminate\Http\Request;
 
-class ItemController extends Controller
+class SizeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class ItemController extends Controller
     public function index()
     {
         //
-        $result = Item::paginate(5);
-        return view('items.index',['items'=>$result]);
+        return view('admin.size');
     }
 
     /**
@@ -27,7 +25,6 @@ class ItemController extends Controller
     public function create()
     {
         //
-        return view('items.create');
     }
 
     /**
@@ -50,12 +47,6 @@ class ItemController extends Controller
     public function show($id)
     {
         //
-
-        $result = Item::findOrFail($id);
-
-        // return $result;
-
-        return view('items.show',['item' => $result]);
     }
 
     /**
@@ -67,8 +58,6 @@ class ItemController extends Controller
     public function edit($id)
     {
         //
-        $result = Item::findORFail($id);
-        return view('items.create', ['item' => $result]);
     }
 
     /**
