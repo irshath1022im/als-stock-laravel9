@@ -5,6 +5,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemSizeController;
 use App\Http\Controllers\ItemTransectionLogsController;
 use App\Http\Controllers\SizeController;
+use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,4 +43,16 @@ Route::controller(ItemTransectionLogsController::class)->group(function () {
 });
 
 Route::resource('/admin/sizes', SizeController::class);
+
+
+Route::get('/reports/uniforms', function(){
+    $result = Item::with(['itemSize' => function($query){
+                                return $query->with('size')->get();
+                            }])
+                        ->get();
+
+
+
+    return view('reports.uniform', ['items' => $result]);
+});
 

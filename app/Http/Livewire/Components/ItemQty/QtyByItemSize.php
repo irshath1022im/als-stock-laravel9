@@ -22,7 +22,8 @@ class QtyByItemSize extends Component
 
     public function render()
     {
-       $result = ItemTransectionLog::with('size')->where('item_id', $this->item_id)
+       $result = ItemTransectionLog::with('size')
+            ->where('item_id', $this->item_id)
              ->where('size_id', $this->item_size)
              ->sum('qty');
         
