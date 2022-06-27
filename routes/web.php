@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('category.index');
+    return view('home');
 })->name('store');
 
 
