@@ -25,11 +25,13 @@ class HomeItems extends Component
     public function selectedCategory($category_id)
     {
         $this->category_id = $category_id;
+        $this->resetPage();
     }
 
     public function receiveSelectedStore()
     {
         $this->category_id = null;
+        $this->resetPage();
     }
 
     public function render()

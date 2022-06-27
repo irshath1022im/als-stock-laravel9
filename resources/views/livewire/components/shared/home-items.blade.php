@@ -10,13 +10,25 @@
             @foreach ($items as $item)
                 <div class="col-md-6">
 
-                    @component('components.itemcard', [
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">{{ $item->item }}</div>
+                        </div>
+                        <img class="card-img-top w-25" src="{{ Storage::URL($item->thumbnail)}}">
+                        <div class="card-body">
+                            <h4 class="card-title">{{  $item->item }}</h4>
+                        </div>
+                    </div>
+
+                    {{-- @component('components.itemcard', [
                         'id' => $item->id,
-                        'image' => Storage::URL($item->thumbnail), 
-                        'item_name' => $item->item
+                        'image' => , 
+                        'item_name' =>
                         ])
+
+
                     
-                    @endcomponent
+                    @endcomponent --}}
 
                 </div>
         
