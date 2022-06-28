@@ -18,7 +18,7 @@
           
          
             @foreach ($items as $item)
-                <div class="col-md-6">
+                <div class="col-md-4">
 
                     <div class="card mb-2" style="width: 18rem">
                         <div class="card-header">

@@ -54,7 +54,7 @@ class HomeItems extends Component
                 $store = Store::with('items')->find($this->store_id);
                 $itemCollection = $store->items;
             
-                $result = collect($itemCollection)->simplePaginate(2);
+                $result = collect($itemCollection)->simplePaginate(9);
             } else {
 
                 $result = Item::when($this->category_id, function($q){
