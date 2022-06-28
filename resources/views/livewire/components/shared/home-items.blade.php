@@ -28,7 +28,7 @@
                             
                         <div class="card-body">
                             <div class="border borde-primary p-1" style="width: 250px; height:200px">
-                                <img class="card-img-top" style="width: 250px; height:200px" src="{{ Storage::URL($item->thumbnail)}}">
+                                <img class="card-img-top img-fluid" style="width: 240px; height:180px" src="{{ Storage::URL($item->thumbnail)}}">
                             </div>
                          
                         </div>
