@@ -74,9 +74,14 @@ class CreateItem extends Component
                 'category_id' => 'required',
             ]);
 
-        $fileExtention = $this->thumbnail->getClientOriginalExtension();
+        
+        if($this->thumbnail)
+        {
+            $fileExtention = $this->thumbnail->getClientOriginalExtension();
 
-        $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item_id.'.'.$fileExtention);
+            $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item_id.'.'.$fileExtention);
+        }
+     
 
               
 
