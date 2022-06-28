@@ -7,6 +7,16 @@
     </div>
 
     <div class="row" wire:loading.remove>
+
+            @if (count($items) <= 0)
+               <div class="alert alert-info" role="alert">
+                <strong>No Items Found !!!</strong>
+               </div>
+               
+            @else
+                
+          
+         
             @foreach ($items as $item)
                 <div class="col-md-6">
 
@@ -30,6 +40,9 @@
                 </div>
         
             @endforeach
+
+            @endif
+
     </div>
 
     {{ $items->links() }}
