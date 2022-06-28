@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemSizeController;
 use App\Http\Controllers\ItemTransectionLogsController;
 use App\Http\Controllers\SizeController;
 use App\Models\Item;
+use App\Models\Store;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,19 @@ Route::get('/', function () {
 Route::get('/store', function(){
     return view('store.index');
 })->name('store');
+
+
+Route::get('/store/{id}', function($id){
+
+    $store = Store::with('items')->find($id);
+    $itemCollection = $store->items;
+
+    $result = collect($itemCollection)->simplePaginate(5);
+    return view('store.show',['items' => $result]);
+
+
+
+});
 
 
 Route::resource('/category', CategoryController::class);

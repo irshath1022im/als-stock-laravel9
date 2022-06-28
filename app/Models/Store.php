@@ -14,4 +14,13 @@ class Store extends Model
         return $this->hasMany(Category::class);
     }
 
+    public function items()
+    {
+        return $this->hasManyThrough(
+                Item::class,
+                Category::class,
+
+        );
+    }
+
 }

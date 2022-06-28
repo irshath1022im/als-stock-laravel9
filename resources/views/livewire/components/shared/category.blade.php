@@ -15,7 +15,7 @@
                         value="{{ $category->id }}"
                         wire:model="selected_category"
                     >
-                    <label class="form-check-label" for="">
+                    <label class="form-check-label text-uppercase" for="">
                         {{ $category->category }}
                     </label>            
                 </div>

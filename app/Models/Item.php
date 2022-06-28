@@ -21,4 +21,13 @@ class Item extends Model
         return $this->hasMany(ItemTransectionLog::class);
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    
+
+  
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Components\Shared;
 
 use App\Models\Item;
+use App\Models\Store;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -10,6 +11,7 @@ class HomeItems extends Component
 {
 
     public $category_id;
+    public $store_id = 1;
 
 
     use WithPagination; 
@@ -28,21 +30,41 @@ class HomeItems extends Component
         $this->resetPage();
     }
 
-    public function receiveSelectedStore()
+    public function receiveSelectedStore($store_id)
     {
         $this->category_id = null;
+        $this->store_id = $store_id;
         $this->resetPage();
+    }
+
+
+    public function mount()
+    {
+        
+
     }
 
     public function render()
         {
-            $result = Item::when($this->category_id, function($q){
-                return $q->where('category_id', $this->category_id);
-            })
-            ->when($this->category_id == null, function($q){
-                return $q;
-            })
-            ->paginate(6);
-            return view('livewire.components.shared.home-items',['items' => $result]);
+           
+            // when the category is null
+
+            if(!$this->category_id)
+            {
+                $store = Store::with('items')->find($this->store_id);
+                $itemCollection = $store->items;
+            
+                $result = collect($itemCollection)->simplePaginate(2);
+            } else {
+
+                $result = Item::when($this->category_id, function($q){
+                    return $q->where('category_id', $this->category_id);
+                })
+                ->paginate(6);
+    
+
+            }
+
+            return view('livewire.components.shared.home-items', ['items' => $result]);
         }
 }

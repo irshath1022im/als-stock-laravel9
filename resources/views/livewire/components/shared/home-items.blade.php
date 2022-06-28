@@ -10,25 +10,22 @@
             @foreach ($items as $item)
                 <div class="col-md-6">
 
-                    <div class="card">
+                    <div class="card mb-2" style="width: 18rem">
                         <div class="card-header">
-                            <div class="card-title">{{ $item->item }}</div>
+                            <div class="card-title text-uppercase">{{ $item->id }} / {{ $item->item }}</div>
                         </div>
-                        <img class="card-img-top w-25" src="{{ Storage::URL($item->thumbnail)}}">
+                        <div class="border borde-primary p-1" style="width: 250px; height:200px">
+                            <img class="card-img-top" style="width: 250px; height:200px" src="{{ Storage::URL($item->thumbnail)}}">
+                        </div>
+                            
                         <div class="card-body">
                             <h4 class="card-title">{{  $item->item }}</h4>
                         </div>
+                        <div class="card-footer">
+                            <a name="" id="" class="btn btn-primary" href="{{ route('items.show',['item' => $item->id]) }}" role="button">View Item</a>
+                        </div>
+
                     </div>
-
-                    {{-- @component('components.itemcard', [
-                        'id' => $item->id,
-                        'image' => , 
-                        'item_name' =>
-                        ])
-
-
-                    
-                    @endcomponent --}}
 
                 </div>
         
