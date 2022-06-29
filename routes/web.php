@@ -33,11 +33,11 @@ Route::get('/store', function(){
 
 Route::get('/store/{id}', function($id){
 
-    $store = Store::with('items')->find($id);
-    $itemCollection = $store->items;
+  $store = Store::with('items')->find($id);
+  $itemCollection = $store->items;
 
-    $result = collect($itemCollection)->simplePaginate(5);
-    return view('store.show',['items' => $result]);
+   return collect($itemCollection)->simplePaginate(5);
+    // return view('store.show',['items' => $result]);
 
 
 

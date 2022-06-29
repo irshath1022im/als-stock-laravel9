@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ALS-STOCK</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+   
 </head>
 <body>
 
   @livewireStyles
-  @livewireScripts
+ 
     <section class="">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary"">
@@ -73,7 +74,7 @@
   
     
     <script src="{{ asset('js/app.js') }}"></script>
-    
+    @livewireScripts
 
 </body>
 </html>

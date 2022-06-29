@@ -14,7 +14,7 @@
         "laravel/ui": "^3.4",
         "livewire/livewire": "^2.10",
         "spatie/laravel-collection-macros": "^7.6"
-    },
+        },
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",

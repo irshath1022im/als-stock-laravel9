@@ -6,6 +6,8 @@
         @endcomponent
     </div>
 
+    {{ $instock }}
+
     <div class="row" wire:loading.remove>
 
             @if (count($items) <= 0)
@@ -34,6 +36,12 @@
                         </div>
                         <div class="card-footer">
                             <a name="" id="" class="btn btn-primary btn-sm" href="{{ route('items.show',['item' => $item->id]) }}" role="button">View Item</a>
+
+                            <button type="button" class="btn btn-primary btn-sm"
+                               
+                            >
+                                InStock
+                              </button>
                         </div>
 
                     </div>
@@ -47,6 +55,16 @@
     </div>
 
     {{ $items->links() }}
+
+
+
+
+
+
+
+
+
+
 
     
 </div>
