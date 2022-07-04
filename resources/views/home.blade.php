@@ -5,6 +5,8 @@
 
 @section('content')
     @livewire('home.index')
+
+
 @endsection
 
 

@@ -6,7 +6,6 @@
         @endcomponent
     </div>
 
-    {{ $instock }}
 
     <div class="row" wire:loading.remove>
 
@@ -34,14 +33,11 @@
                             </div>
                          
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer d-flex justify-content-between">
                             <a name="" id="" class="btn btn-primary btn-sm" href="{{ route('items.show',['item' => $item->id]) }}" role="button">View Item</a>
 
-                            <button type="button" class="btn btn-primary btn-sm"
-                               
-                            >
-                                InStock
-                              </button>
+                            {{-- @livewire('components.shared.item-stock-status', ['item_id' => $item->id]) --}}
+                           
                         </div>
 
                     </div>
@@ -55,7 +51,6 @@
     </div>
 
     {{ $items->links() }}
-
 
 
 

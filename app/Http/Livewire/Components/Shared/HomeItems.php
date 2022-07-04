@@ -12,7 +12,6 @@ class HomeItems extends Component
 
     public $category_id;
     public $store_id = 1;
-    public $instock = 10;
 
 
     use WithPagination; 
@@ -39,13 +38,11 @@ class HomeItems extends Component
     }
 
 
- 
 
     public function render()
         {
            
             // when the category is null
-            $this->instock = 13;
 
             if(!$this->category_id)
             {
@@ -67,8 +64,5 @@ class HomeItems extends Component
         }
 
 
-    public function dehydrate()
-    {
-        $this->instock = 20;
-    }
+    
 }
