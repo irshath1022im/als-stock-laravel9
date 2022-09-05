@@ -16,18 +16,16 @@ class Item extends Model
         return $this->hasMany(ItemSize::class);
     }
 
-    public function transectionLogs()
-    {
-        return $this->hasMany(ItemTransectionLog::class);
-    }
-
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    
 
-  
+    public function storeRequest()
+    {
+        return $this->hasMany(StoreReuqest::class);
+    }
+
 
 }

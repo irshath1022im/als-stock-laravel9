@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemTransectionLogsTable extends Migration
+class CreateStoreRequestItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateItemTransectionLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_transection_logs', function (Blueprint $table) {
-            $table->engine = 'MyISAM';
+        Schema::create('store_request_items', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->unsignedBigInteger('transection_type');
+            $table->unsignedBigInteger('store_request_id');
             $table->unsignedBigInteger('item_size_id');
             $table->integer('qty');
-            $table->text('remark')->nullable();
-
-            $table->foreign('item_size_id')->references('id')->on('item_sizes');
-            $table->foreign('transection_type')->references('id')->on('transection_types');
+            $table->text('remakr');
             $table->timestamps();
+
+            $table->foreign('store_request_id')->references('id')->on('store_requests');
+            $table->foreign('item_size_id')->references('id')->on('item_sizes');
         });
     }
 
@@ -35,6 +33,6 @@ class CreateItemTransectionLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_transection_logs');
+        Schema::dropIfExists('store_request_items');
     }
 }

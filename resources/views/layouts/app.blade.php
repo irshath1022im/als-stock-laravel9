@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ALS-STOCK</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-   
+
 </head>
 <body>
 
   @livewireStyles
- 
+
     <section class="">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary"">
@@ -34,23 +34,28 @@
                       <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('category.index') }}" >CATEGORY</a>
                       </li>
-                      
-                      
+
+
                       <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('items.index') }}" >ITEMS</a>
                       </li>  <li class="nav-item">
                         {{-- <a class="nav-link text-white" href="{{route('storeRequest.index')}}" >STORE REQUEST</a> --}}
                       </li>
+
                       </li>  <li class="nav-item">
                           <a class="nav-link text-white" href="#" >RECEIVING</a>
                         </li>
+
+                    </li>  <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('storeRequest.index') }}" >STORE REQUEST</a>
+                      </li>
 
                       </li>  <li class="nav-item">
                         <a class="nav-link text-white" href="#" >REPORTS</a>
                       </li>
 
 
-                            
+
                       @auth
                                 <form method="post" action="#">
                                 @csrf
@@ -71,10 +76,10 @@
       @yield('content')
 
     </section>
-  
-    
 
-    
+
+
+
 @livewireScripts
 
 <script src="{{ asset('js/app.js') }}"></script>

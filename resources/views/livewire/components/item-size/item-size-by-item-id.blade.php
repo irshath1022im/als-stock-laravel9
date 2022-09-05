@@ -1,7 +1,5 @@
 <div>
 
- 
-  
 
     <div class="card">
         <div class="card-header">
@@ -18,9 +16,7 @@
                   </button>
 
 
-                  <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modelId3">
-                    LOGS
-                  </button>
+
 
             </div>
         </div>
@@ -31,40 +27,74 @@
             {{-- @dump($item_sizes) --}}
 
             @if (count($item_sizes) >= 1)
-            
-                    <div class="d-grid gap-2 d-md-block" >
 
-                        @foreach ($item_sizes as $item)
+                <ul class="list-group">
+
+                    @foreach ($item_sizes as $item_size)
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center
+
+                            ">
+                            {{ $item_size->size->size }}
+                            <span class="badge
+                                @if (count($item_size->transectionLogs) > 0)
+                                bg-success
+                            @else
+                                bg-secondary
+                            @endif
+
+                            badge-pill">{{ $item_size->transectionLogs->sum('qty') }}</span>
+                        </li>
+
+                    @endforeach
 
 
-                        <button class="btn btn-primary position-relative m-3 p-2 text-uppercase" type="button">{{ $item->size->size }}
+                </ul>
 
-                            @livewire('components.item-qty.qty-by-item-size', ['item_id' => $item_id, 'size_id' => $item->size_id ] )
-                        
-                        </button>
+            @else
 
-                        
-                        @endforeach
-                        
+            <div class="alert alert-warning" role="alert">
+                <strong>NO DATA FOUND...!!!!</strong>
+            </div>
+
+            @endif
+
+
+
+
+                            {{-- @livewire('components.item-qty.qty-by-item-size', ['item_size_id' =>  ] ) --}}
+
+
+                            {{-- @if (count($item_size->transectionLogs) > 0 )
+
+                                 <button class="btn btn-success position-relative m-3 p-2 text-uppercase" type="button">
+
+                                 </button>
+                            @else
+
+                            <button class="btn btn-secondary position-relative m-3 p-2 text-uppercase" type="button">
+                                {{ $item_size->size->size }}
+                             </button>
+
+                            @endif
+
+
+
                     </div>
-                @else
 
-                <div class="alert alert-warning" role="alert">
-                    <strong>NO DATA FOUND...!!!!</strong>
-                </div>
 
-                @endif
-                
+                --}}
+
 
 
         </div>
-    </div>
-    
+
+
 
 
     <!-- Button trigger modal -->
-   
-    
+
+
     <!-- Modal -->
     <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -74,8 +104,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
-                        @livewire('components.item-size.create-form', ['item_id' => $item_id])
+
+                        {{-- @livewire('components.item-size.create-form', ['item_id' => $item_id]) --}}
 
 
                 </div>
@@ -86,7 +116,7 @@
             </div>
         </div>
     </div>
-    
+
 
       <!-- Modal Transections -->
       <div class="modal fade" id="modelId2" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -94,18 +124,18 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">TRANSECTIONS </h5>
-                        <button type="button" class="btn-close" 
-                            data-bs-dismiss="modal" 
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal"
                             aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
-                            @livewire('components.transections.create-form',['item_id' => $item_id])
+
+                            {{-- @livewire('components.transections.create-form',['item_id' => $item_id]) --}}
 
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" 
+                    <button type="button" class="btn btn-secondary"
                         data-bs-dismiss="modal"
                     >Close</button>
                     {{-- <button type="button" class="btn btn-primary">Save</button> --}}
@@ -114,31 +144,7 @@
         </div>
     </div>
 
-      <!-- Modal Transection Logs -->
-      <div class="modal fade" id="modelId3" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog  modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">LOGS </h5>
-                        <button type="button" class="btn-close" 
-                            data-bs-dismiss="modal" 
-                            aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    
-                            @livewire('components.transections.trans-logs',['item_id' => $item_id])
 
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" 
-                        data-bs-dismiss="modal"
-                    >Close</button>
-                    {{-- <button type="button" class="btn btn-primary">Save</button> --}}
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 

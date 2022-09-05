@@ -17,12 +17,23 @@ class ItemSize extends Model
         return $this->belongsTo(Item::class);
     }
 
+    public function transectionLogs()
+    {
+        return $this->hasMany(ItemTransectionLog::class,'item_size_id');
+    }
+
 
     public function size()
     {
         return $this->belongsTo(Size::class);
     }
 
-  
+    public function storeRequestItems()
+    {
+        return $this->hasMany(StoreRequestItem::class,'item_size_id');
+
+    }
+
+
 
 }
