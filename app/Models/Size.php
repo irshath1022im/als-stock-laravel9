@@ -9,6 +9,10 @@ class Size extends Model
 {
     use HasFactory;
 
-    
+    public function itemSize()
+    {
+        return $this->hasMany(ItemSize::class);
+    }
+
 
 }

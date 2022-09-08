@@ -11,6 +11,6 @@ class TransectionType extends Model
 
     public function transectionLogs()
     {
-        return $this->hasMany(ItemTransectionLog::class);
+        return $this->hasMany(ItemTransectionLog::class, 'transection_type');
     }
 }

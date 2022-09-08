@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ALS-STOCK</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script defer src="https://unpkg.com/@alpinejs/ui@3.10.3-beta.2/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/@alpinejs/focus@3.10.3/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
@@ -15,7 +15,7 @@
 
   @livewireStyles
 
-    <section class="">
+    {{-- <section class="">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary"">
             <div class="container-fluid">
@@ -42,7 +42,6 @@
                       <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('items.index') }}" >ITEMS</a>
                       </li>  <li class="nav-item">
-                        {{-- <a class="nav-link text-white" href="{{route('storeRequest.index')}}" >STORE REQUEST</a> --}}
                       </li>
 
                       </li>  <li class="nav-item">
@@ -72,7 +71,7 @@
 
             </div>
         </nav>
-    </section>
+    </section> --}}
 
     <section class="container mt-2">
 
@@ -85,7 +84,6 @@
 
 @livewireScripts
 
-<script src="{{ asset('js/app.js') }}"></script>
 
 
 

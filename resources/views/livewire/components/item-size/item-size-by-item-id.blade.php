@@ -35,7 +35,10 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center
 
                             ">
+                           <button class="btn btn-light" >
+                            <span class="badge bg-primary">ID : {{ $item_size->id }}</span>
                             {{ $item_size->size->size }}
+                           </button>
                             <span class="badge
                                 @if (count($item_size->transectionLogs) > 0)
                                 bg-success
@@ -43,7 +46,7 @@
                                 bg-secondary
                             @endif
 
-                            badge-pill">{{ $item_size->transectionLogs->sum('qty') }}</span>
+                            badge-pill">{{ $item_size->transectionLogs->sum('qty') - $item_size->storeRequestItems->sum('qty')}}</span>
                         </li>
 
                     @endforeach
@@ -53,9 +56,9 @@
 
             @else
 
-            <div class="alert alert-warning" role="alert">
-                <strong>NO DATA FOUND...!!!!</strong>
-            </div>
+                @component('components.empty',['message' => 'No Transection Logs Found !!!'])
+
+                @endcomponent
 
             @endif
 
@@ -105,7 +108,7 @@
                 </div>
                 <div class="modal-body">
 
-                        {{-- @livewire('components.item-size.create-form', ['item_id' => $item_id]) --}}
+                        @livewire('components.item-size.create-form', ['item_id' => $item_id])
 
 
                 </div>

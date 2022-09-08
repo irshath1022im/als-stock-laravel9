@@ -23,13 +23,13 @@
 
        <div class="col-sm-9">
 
-            {{-- @livewire('components.item-size.item-size-by-item-id',['item_id' => $item->id]) --}}
+        {{-- @dump($item->itemTransectionLogs) --}}
+        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modelId3">
+            LOGS
+          </button>
 
-            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modelId3">
-                LOGS
-              </button>
+          @livewire('components.item-size.item-size-by-item-id', ['item_id' => $item->id])
 
-              {{-- @dump($item->itemSize->transectionLogs) --}}
 
        </div>
 
@@ -50,28 +50,39 @@
                 </div>
                 <div class="modal-body">
 
-                            {{-- @livewire('components.transections.trans-logs',['item_id' => $item_id]) --}}
-{{--
-                            @if (count($item->itemSize->transectionLogs) > 0)
+                    @if(count($item->itemTransectionLogs) < 1)
+                    @component('components.empty',['message' => 'No Transections Found !!!'])
 
-                            @else
-                                Nothing Found
-                            @endif --}}
+                    @endcomponent
+
+                @else
 
 
-                            @empty($item->itemSize->transectionLogs)
+                  <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>DATE</th>
+                            <th>SIZE</th>
+                            <th>QTY</th>
+                            <th>TYPE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                                @component('components.empty',['message' => 'No Transections Found !!!'])
 
-                                @endcomponent
+                  @foreach ($item->itemTransectionLogs as $log)
 
-                                @else
+                            @component('components.itemTransectionsLogs',['log' => $log ])
 
-                                data avaialble
-                                {{-- @component('components.itemTransectionsLogs',['logs' => $item->itemSize->transectionLogs ])
+                            @endcomponent
 
-                                @endcomponent --}}
-                            @endempty
+                @endforeach
+
+                </tbody>
+            </table>
+
+            @endif
 
 
 

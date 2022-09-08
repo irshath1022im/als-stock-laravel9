@@ -18,6 +18,6 @@ class ItemTransectionLog extends Model
 
     public function transectionType()
     {
-        return $this->belongsTo(TransectionType::class);
+        return $this->belongsTo(TransectionType::class, 'transection_type');
     }
 }

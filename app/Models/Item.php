@@ -22,9 +22,17 @@ class Item extends Model
     }
 
 
-    public function storeRequest()
+
+
+    public function itemTransectionLogs()
     {
-        return $this->hasMany(StoreReuqest::class);
+        return $this->hasManyThrough(
+            ItemTransectionLog::class,
+            ItemSize::class,
+            'item_id',
+            'item_size_id',
+            'id'
+        );
     }
 
 

@@ -51,8 +51,19 @@ class ItemController extends Controller
     {
         //
 
-        $result = Item::with(['itemSize' => function($query){
-            return $query->with('transectionLogs');
+        // $result = Item::with(['itemSize' => function($query){
+        //     return $query->with(['transectionLogs' => function($query){
+        //         return $query->with([
+        //             'itemSize' => function($query){
+        //             return $query->with('size');
+        //             },
+        //             'transectionType'
+        //         ]);
+        //     }]);
+        // }])->findOrFail($id);
+
+        $result = Item::with(['itemTransectionLogs'=> function($query){
+            return $query->with('transectionType','itemSize');
         }])->findOrFail($id);
 
         // return $result;

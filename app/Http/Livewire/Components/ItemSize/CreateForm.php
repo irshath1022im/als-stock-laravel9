@@ -30,7 +30,9 @@ class CreateForm extends Component
 
     //   dd($result);
 
+
         session()->flash('created', 'Item Size has been addedd');
+
         redirect()->route('items.show',['item' => $this->item_id]);
 
     }
@@ -38,8 +40,8 @@ class CreateForm extends Component
     public function mount($item_id)
     {
 
-        $this->sizes = Size::get();
         $this->item_id= $item_id;
+        $this->sizes = Size::get();
     }
 
 

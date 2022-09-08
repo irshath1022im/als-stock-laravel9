@@ -8,6 +8,7 @@ use App\Http\Controllers\SizeController;
 use App\Http\Controllers\StoreReuqestController;
 use App\Models\Item;
 use App\Models\Store;
+use App\Models\StoreReuqest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,3 +73,13 @@ Route::get('/reports/uniforms', function(){
     return view('reports.uniform', ['items' => $result]);
 });
 
+Route::get('/print/storeRequest/{id}', function($id){
+
+    $result = StoreReuqest::with(['storeRequestItems'=> function($query){
+        return $query->with(['itemSize' => function($query){
+            return $query->with(['item', 'size']);
+        }]);
+    }])->findOrFail($id);
+
+    return view('store_request.report',['store_request' => $result]);
+})->name('printStoreRequest');

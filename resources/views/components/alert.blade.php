@@ -16,4 +16,10 @@
     <strong>{{ session('deleted')}}</strong>
     </div>
     @endif
+
+    @if($message = session('error'))
+    <div class="alert alert-danger" role="alert">
+      <strong>{{ $message}}</strong>
+    </div>
+    @endif
 </div>
