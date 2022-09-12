@@ -9,6 +9,8 @@ class StoreReuqest extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['date', 'requestedBy','approvedBy','remark','status'];
+
     // public function items()
     // {
     //     return $this->hasMany(Item::class,'id');

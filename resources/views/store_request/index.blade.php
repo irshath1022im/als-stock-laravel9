@@ -4,56 +4,10 @@
 @section('content')
 
 
-    @empty($store_requests)
-        @component('components.empty',['message' => 'No More Storage Requests Found !!!'])
-
-        @endcomponent
-    @endempty
-
-    <div class="card">
-        <div class="card-header">
-            STORE REQUEST
-        </div>
-        <div class="card-body">
+        @livewire('store-request.index')
 
 
 
-            <div class="table-responsive">
-                <table class="table table-light">
-                    <thead>
-                        <tr class="text-uppercase">
-                            <th scope="col">DATE</th>
-                            <th scope="col">REQUESTED BY</th>
-                            <th scope="col">APPROVED BY</th>
-                            <th scope="col">STATUS</th>
-                            <th scope="col">REMARK</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-
-                        @foreach ($store_requests as $item)
-
-                        <tr class="text-uppercase">
-                            <td scope="row">{{ $item->date }}</td>
-                            <td>{{ $item->requestedBy }}</td>
-                            <td>{{ $item->approvedBy }}</td>
-                            <td>{{ $item->status }}</td>
-                            <td>{{ $item->remark }}</td>
-                            <td><a name="" id="" class="btn btn-primary" href="{{ route('storeRequest.show',['storeRequest' => $item->id]) }}" role="button">VIEW</a></td>
-                        </tr>
-                        @endforeach
-
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-
-        <div class="card-footer text-muted">
-            Footer
-        </div>
-    </div>
 
 
 
@@ -126,33 +80,10 @@
 </div> --}}
 
 <!-- Modal trigger button -->
-<div>
-<button type="button" class="btn btn-primary btn-lg"
-    x-on:click="open = true"
->
 
-  Launch
-</button>
 
 <!-- Modal Body -->
 <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-<div class="modal fade" id="modalId" tabindex="-1">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Body
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

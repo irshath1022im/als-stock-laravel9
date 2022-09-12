@@ -15,8 +15,8 @@ class StoreReuqestController extends Controller
     public function index()
     {
         //
-        $result = StoreReuqest::get();
-        return view('store_request.index',['store_requests' => $result]);
+        // $result = StoreReuqest::get();
+        return view('store_request.index');
     }
 
     /**
