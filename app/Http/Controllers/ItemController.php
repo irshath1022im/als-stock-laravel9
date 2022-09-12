@@ -62,9 +62,7 @@ class ItemController extends Controller
         //     }]);
         // }])->findOrFail($id);
 
-        $result = Item::with(['itemTransectionLogs'=> function($query){
-            return $query->with('transectionType','itemSize');
-        }])->findOrFail($id);
+        $result = Item::findOrFail($id);
 
         // return $result;
 

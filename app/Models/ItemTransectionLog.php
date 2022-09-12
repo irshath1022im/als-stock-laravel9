@@ -9,7 +9,7 @@ class ItemTransectionLog extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['date','item_id', 'size_id', 'remark', 'transection_type', 'qty'];
+    protected $fillable = ['date','item_size_id', 'remark', 'transection_type', 'qty'];
 
     public function itemSize()
     {
