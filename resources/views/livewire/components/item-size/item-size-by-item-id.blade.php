@@ -3,7 +3,7 @@
 
     <div class="card">
         <div class="card-header">
-            <div class="card-title">ITEM :  / {{ $item_id }}
+            <div class="card-title">ITEM ID :  / {{ $item_id }}
 
                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modelId">
                     NEW SIZE
@@ -36,17 +36,42 @@
 
                             ">
                            <button class="btn btn-light" >
-                            <span class="badge bg-primary">ID : {{ $item_size->id }}</span>
+                            <span class="badge bg-primary">SIZE ID : {{ $item_size->id }}</span>
                             {{ $item_size->size->size }}
                            </button>
-                            <span class="badge
+
+                            {{-- <span class="badge
                                 @if (count($item_size->transectionLogs) > 0)
                                 bg-success
                             @else
                                 bg-secondary
                             @endif
 
-                            badge-pill">{{ $item_size->transectionLogs->sum('qty') - $item_size->storeRequestItems->sum('qty')}}</span>
+                            badge-pill">
+
+                           QTY {{ $item_size->transectionLogs->sum('qty') - $item_size->storeRequestItems->sum('qty')}}</span> --}}
+
+                           <button type="button" class="btn
+                            @if (count($item_size->transectionLogs) > 0)
+                                btn-success
+                            @else
+                                btn-secondary disabled
+                            @endif
+                                 position-relative">
+
+                             @if (count($item_size->transectionLogs) > 0)
+                                InStock
+                             @else
+                                Not InStock
+
+                            @endif
+
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ $item_size->transectionLogs->sum('qty') - $item_size->storeRequestItems->sum('qty')}}
+                            </span>
+
+                          </button>
+
                         </li>
 
                     @endforeach
