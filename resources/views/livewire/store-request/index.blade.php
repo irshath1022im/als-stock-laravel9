@@ -101,7 +101,7 @@
                  >
                     <div class="modal-content ">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                            <h5 class="modal-title" id="modalTitleId">STORE REQUEST FORM</h5>
                                 <button type="button" class="btn-close"  aria-label="Close"
                                     x-on:click="open =false"
                                 ></button>
@@ -116,7 +116,6 @@
                             <button type="button" class="btn btn-secondary"
                              wire:click="closeForm"
                             >Close</button>
-                            <button type="button" class="btn btn-primary">Save</button>
                         </div>
                     </div>
                 </div>

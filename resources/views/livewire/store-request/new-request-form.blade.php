@@ -15,7 +15,17 @@
 
 <div>
 
-    <button type="button" class="btn btn-primary">{{ $mode }}</button>
+    <div class="d-flex justify-content-end">
+
+        <button type="button" class="btn btn-primary position-relative">
+            MODE :
+            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                {{ $mode }}
+            </span>
+          </button>
+
+        {{-- <button type="button" class="btn btn-primary">Mode : {{ $mode }}</button> --}}
+    </div>
 
     <form wire:submit.prevent= @if($mode == 'New') 'formSubmit' @else 'updateForm' @endif >
 
