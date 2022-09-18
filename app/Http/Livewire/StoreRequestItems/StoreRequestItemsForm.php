@@ -19,6 +19,7 @@ class StoreRequestItemsForm extends Component
     public $availableQty;
 
 
+
     protected $rules=[
         'store_request_id' => 'required',
         'item_size_id' => 'required',
@@ -38,21 +39,34 @@ class StoreRequestItemsForm extends Component
 
     public function updatedItemSizeId()
     {
-        // $this->availableQty =
+
+            if(!empty($this->item_size_id ))
+
+            {
+                $this->availableQty = $this->item_size_id;
+
+                $total = ItemSize::with('transectionLogs','storeRequestItems')->find($this->item_size_id);
+
+                $this->availableQty = $total->transectionLogs->sum('qty') - $total->storeRequestItems->sum('qty');
+            }
+
+
+
     }
+
 
     public function formSubmit()
     {
-        // $validated =$this->validate();
+        $validated =$this->validate();
 
-        // $data= [
-        //     'store_request_id' => $validated['store_request_id'],
-        //     'item_size_id' => $validated['item_size_id'],
-        //     'qty' => $validated['qty'],
-        //     'remark' => $validated['remark']
-        // ];
+        $data= [
+            'store_request_id' => $validated['store_request_id'],
+            'item_size_id' => $validated['item_size_id'],
+            'qty' => $validated['qty'],
+            'remark' => $validated['remark']
+        ];
 
-        // StoreRequestItem::create($data);
+        StoreRequestItem::create($data);
         $this->resetExcept('store_request_id');
         session()->flash('created', 'Item Has been Added...');
     }

@@ -14,6 +14,7 @@ class CreateStoreReuqestsTable extends Migration
     public function up()
     {
         Schema::create('store_reuqests', function (Blueprint $table) {
+            $table->engine = 'MyISAM';
             $table->id();
             $table->date('date');
             $table->string('requestedBy');

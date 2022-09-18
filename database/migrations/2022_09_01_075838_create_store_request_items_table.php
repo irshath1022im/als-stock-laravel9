@@ -14,13 +14,13 @@ class CreateStoreRequestItemsTable extends Migration
     public function up()
     {
         Schema::create('store_request_items', function (Blueprint $table) {
+            $table->engine = 'MyISAM';
             $table->id();
             $table->unsignedBigInteger('store_request_id');
             $table->unsignedBigInteger('item_size_id');
             $table->integer('qty');
             $table->text('remark')->nullable();
             $table->timestamps();
-
             $table->foreign('store_request_id')->references('id')->on('store_requests');
             $table->foreign('item_size_id')->references('id')->on('item_sizes');
         });

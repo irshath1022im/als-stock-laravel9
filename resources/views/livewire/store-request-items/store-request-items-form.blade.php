@@ -28,31 +28,28 @@
 
                 <option value="">Select</option>
                 @foreach ($item_sizes as $item)
-                    <option value="{{ $item->id }}">
 
-                        {{ $item->size->size }}
-
-                        {{-- @if (count($item->transectionLogs) > 0)
-                            <span class=" btn badge rounded-pill bg-info">{{ $item->transectionLogs->sum('qty') }}</span>
-                        @else
-                        <span>0</span>
-                        @endif --}}
-
-
-                    </option>
+            {{-- this item return itemSize --}}
+                    <option value="{{ $item->id }}"> {{ $item->size->size }}</option>
                 @endforeach
 
               </select>
 
-              <small id="helpId" class="form-text text-muted">Available Qty {{ $item_size_id }}</small>
+                <small id="helpId" class="form-text text-muted">Available Qty
+                        <span class="badge @if ($availableQty > 0)
+                            bg-success
+                        @else
+                            bg-danger
+                        @endif
+                        ">{{ $availableQty }}</span> </small>
 
-            @error('item_size_id')
+                    @error('item_size_id')
 
-                <div class="alert alert-warning" role="alert">
-                            <strong>{{ $message }}</strong>
-                </div>
+                        <div class="alert alert-warning" role="alert">
+                                <strong>{{ $message }}</strong>
+                        </div>
 
-            @enderror
+                    @enderror
 
             </div>
 

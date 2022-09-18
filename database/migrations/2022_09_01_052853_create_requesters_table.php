@@ -14,6 +14,7 @@ class CreateRequestersTable extends Migration
     public function up()
     {
         Schema::create('requesters', function (Blueprint $table) {
+            $table->engine = 'MyISAM';
             $table->id();
             $table->string('name');
             $table->timestamps();
