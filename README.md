@@ -62,3 +62,11 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## STORE REQUEST ITEMS
+
+    * ITEM SEARCH BAR
+    * BASED ON SELECTED ITEM -> GET THE ITEM_SIZES FROM ITEM_SIZE_TABLE
+    * CHECK THE STOCK STATUS -> AVAIALBLE QTY 
+    * IF AVAILABLE , PROCEED

@@ -18,7 +18,7 @@ class CreateStoreRequestItemsTable extends Migration
             $table->unsignedBigInteger('store_request_id');
             $table->unsignedBigInteger('item_size_id');
             $table->integer('qty');
-            $table->text('remakr');
+            $table->text('remark')->nullable();
             $table->timestamps();
 
             $table->foreign('store_request_id')->references('id')->on('store_requests');

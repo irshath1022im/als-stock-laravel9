@@ -48,13 +48,16 @@ class StoreReuqestController extends Controller
      */
     public function show($id)
     {
-        //
+
         // return $id;
-        $result = StoreReuqest::with(['storeRequestItems'=> function($query){
-            return $query->with(['itemSize' => function($query){
-                return $query->with(['item', 'size']);
-            }]);
-        }])->findOrFail($id);
+        // $result = StoreReuqest::withCount('storeRequestItems')->with(['storeRequestItems'=> function($query){
+        //     return $query->with(['itemSize' => function($query){
+        //         return $query->with(['item', 'size']);
+        //     }]);
+        // }])->findOrFail($id);
+
+        $result = StoreReuqest::withCount('storeRequestItems')->findOrFail($id);
+
 
         // return $result;
 

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class StoreRequestItem extends Model
 {
     use HasFactory;
+    protected $fillable = ['store_request_id','item_size_id','qty','remark'];
 
     public function storeRequest()
     {
