@@ -83,10 +83,8 @@ class StoreRequestItemsForm extends Component
     {
         $validated =$this->validate();
 
-        $qty = intval($this->qty);
-
         $validatedQty = $this->validate(
-            ['qty' => 'required|integer|max:5 ']
+            ['qty' => 'required|integer|max:'.$this->availableQty.' ']
         );
 
         $data= [
