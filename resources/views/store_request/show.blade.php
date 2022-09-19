@@ -62,22 +62,45 @@
 
 
 
+    <div class="card">
 
-    @if ($store_request->store_request_items_count > 0)
+        <div class="card-header">
+            REQUEST ITEMS  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalId">
+                Add Items To Request
+            </button>
 
-            @livewire('store-request-items.store-request-items',['store_request_id' => $store_request->id])
+        </div>
+
+        <div class="card-body">
+
+            @if ($store_request->store_request_items_count > 0)
+
+                    @livewire('store-request-items.store-request-items',['store_request_id' => $store_request->id])
 
             @else
 
-                    @component('components.empty',['message' => 'No Store Request Items Found !!!!'])
+                @component('components.empty',['message' => 'No Store Request Items Found !!!!'])
 
-                    @endcomponent
+                @endcomponent
 
-                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalId">
-                        Add Items To Request
-                      </button>
 
-    @endif
+
+            @endif
+
+        </div>
+
+
+
+        @if ($store_request->store_request_items_count > 0)
+
+        <div class="card-footer text-muted">
+            <a href="{{ route('printStoreRequest',['id' => $store_request->id]) }}" target="_blank"  ><strong>PRINT REPORT</strong></a>
+        </div>
+
+        @endif
+
+
+    </div>
 
 
 
@@ -112,9 +135,8 @@
 </div>
 
 
-<!-- Optional: Place to the bottom of scripts -->
-<script>
-    const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
 
-</script>
+
+
+
 @endsection

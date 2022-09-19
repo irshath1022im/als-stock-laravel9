@@ -10,6 +10,14 @@ class StoreRequestItems extends Component
 
     public $store_request_id;
 
+    protected $listeners=['newItemAdded'];
+
+
+    public function newItemAdded()
+    {
+
+    }
+
     public function mount($store_request_id)
     {
         $this->store_request_id = $store_request_id;

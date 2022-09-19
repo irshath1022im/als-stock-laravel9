@@ -1,11 +1,6 @@
 <div>
 
-    <div class="card">
-        <div class="card-header">
-            REQUEST ITEMS
-        </div>
 
-    <div class="card-body">
 
                         <div class="table-responsive">
                             <table class="table table-light">
@@ -34,19 +29,6 @@
                                 </tbody>
                             </table>
                         </div>
-
-        </div>
-
-        <div class="card-footer text-muted">
-            <a href="{{ route('printStoreRequest',['id' => $store_request_id]) }}" target="_blank"  ><strong>PRINT REPORT</strong></a>
-        </div>
-
-    </div>
-
-
-
-
-
 
 
 

@@ -15,7 +15,7 @@
             @livewire('components.item-search-bar')
 
 
-            <div wire:loading>
+            <div wire:loading  wire:loading.target="item_size_id">
                 @component('components.spinner')
 
                 @endcomponent
@@ -56,7 +56,7 @@
             <div class="mb-3">
               <label for="" class="form-label">Qty</label>
               <input type="number"
-                class="form-control" wire:model.lazy="qty" placeholder="Qty">
+                class="form-control" wire:model.debounce.500mc="qty" placeholder="Qty">
 
                 @error('qty')
 
@@ -65,15 +65,23 @@
                     </div>
 
               @enderror
+
+
+
             </div>
 
             <div class="mb-3">
               <label for="" class="form-label">Remark</label>
-              <textarea class="form-control"wire:model.lazy="remark" rows="3"></textarea>
+              <textarea class="form-control"wire:model.defer="remark" rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary"
 
+                {{-- @if($errors->has('qty'))
+                    disabled
+                @endif --}}
+
+            >Submit</button>
 
         </form>
     </div>

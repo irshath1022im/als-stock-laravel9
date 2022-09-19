@@ -5,6 +5,7 @@ namespace App\Http\Livewire\StoreRequestItems;
 use App\Models\ItemSize;
 use App\Models\ItemTransectionLog;
 use App\Models\StoreRequestItem;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
 class StoreRequestItemsForm extends Component
@@ -26,6 +27,8 @@ class StoreRequestItemsForm extends Component
         'qty' => 'required',
         'remark'=>''
     ];
+
+
 
     protected $listeners=['sendSelectedItemId' => 'receiveSelectedItemId'];
 
@@ -54,21 +57,49 @@ class StoreRequestItemsForm extends Component
 
     }
 
+    public function updated($qty)
+    {
+        // $this->availableQty = $this->availableQty + $this->qty;
+
+        $this->qty = intval($this->qty);
+        if($this->qty > $this->availableQty)
+        {
+            $this->addError('qty', 'We Dont have enought Qty');
+
+        }
+        else{
+            $this->resetErrorBag('qty');
+        }
+
+
+
+
+
+
+    }
+
 
     public function formSubmit()
     {
         $validated =$this->validate();
 
+        $qty = intval($this->qty);
+
+        $validatedQty = $this->validate(
+            ['qty' => 'required|integer|max:5 ']
+        );
+
         $data= [
             'store_request_id' => $validated['store_request_id'],
             'item_size_id' => $validated['item_size_id'],
-            'qty' => $validated['qty'],
+            'qty' => $validatedQty['qty'],
             'remark' => $validated['remark']
         ];
 
         StoreRequestItem::create($data);
         $this->resetExcept('store_request_id');
         session()->flash('created', 'Item Has been Added...');
+        $this->emit('newItemAdded');
     }
 
     public function mount($store_request_id)
