@@ -8,11 +8,11 @@ use Livewire\Component;
 class Index extends Component
 {
 
-    
+
 
     public function render()
     {
-        $result = Item::paginate(5);
+        $result = Item::with('category')->paginate(5);
         return view('livewire.items.index', ['items' => $result]);
     }
 }

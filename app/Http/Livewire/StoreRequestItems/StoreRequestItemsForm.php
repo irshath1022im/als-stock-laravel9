@@ -17,7 +17,7 @@ class StoreRequestItemsForm extends Component
     public $remark;
     public $selectedItemId;
     public $item_sizes=[];
-    public $availableQty;
+    public $availableQty=0;
 
 
 
@@ -84,7 +84,7 @@ class StoreRequestItemsForm extends Component
         $validated =$this->validate();
 
         $validatedQty = $this->validate(
-            ['qty' => 'required|integer|max:'.$this->availableQty.' ']
+            ['qty' => 'required|integer|min:1|max:'.$this->availableQty.' ']
         );
 
         $data= [
@@ -95,9 +95,9 @@ class StoreRequestItemsForm extends Component
         ];
 
         StoreRequestItem::create($data);
+        $this->emit('newItemAdded');
         $this->resetExcept('store_request_id');
         session()->flash('created', 'Item Has been Added...');
-        $this->emit('newItemAdded');
     }
 
     public function mount($store_request_id)

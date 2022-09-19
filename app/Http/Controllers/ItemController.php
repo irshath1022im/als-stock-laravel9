@@ -15,8 +15,8 @@ class ItemController extends Controller
     public function index()
     {
         //
-        $result = Item::paginate(5);
-        return view('items.index',['items'=>$result]);
+        // $result = Item::paginate(5);
+        return view('items.index');
     }
 
     /**

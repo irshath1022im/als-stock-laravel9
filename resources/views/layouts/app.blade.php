@@ -35,9 +35,9 @@
                       <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="/">HOME</a>
                       </li>
-                      <li class="nav-item">
+                      {{-- <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('store') }}" >STORE</a>
-                      </li>
+                      </li> --}}
                       <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('category.index') }}" >CATEGORY</a>
                       </li>
@@ -49,9 +49,9 @@
                         {{-- <a class="nav-link text-white" href="{{route('storeRequest.index')}}" >STORE REQUEST</a> --}}
                       </li>
 
-                      </li>  <li class="nav-item">
+                      {{-- </li>  <li class="nav-item">
                           <a class="nav-link text-white" href="#" >RECEIVING</a>
-                        </li>
+                        </li> --}}
 
                     </li>  <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('storeRequest.index') }}" >STORE REQUEST</a>

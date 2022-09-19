@@ -8,18 +8,18 @@
     <title>REPORT</title>
     <style>
        @media print {
-  .pagebreak { 
-     page-break-before: always; 
+  .pagebreak {
+     page-break-before: always;
   }
 }
         </style>
 </head>
 <body>
-    
+
     @foreach ($items as $item)
-        
-  
-  <div class="card container">
+
+
+  <div class="card container border h-100">
       <div class="card-header">
           <div class="card-title text-center">{{ $item->id }}/{{ $item->item }}</div>
       </div>
@@ -41,27 +41,27 @@
 
             @foreach ($item->itemSize as $sizes)
 
-         
 
-            
-            
+
+
+
             <tr>
                 <td scope="row">{{ $loop->index + 1 }}</td>
                 <td>{{$sizes->size->size}}</td>
-                <td>@livewire('components.item-qty.qty-by-item-size', ['item_id' => $item->id, 'size_id' => $sizes->size_id])
+                {{-- <td>@livewire('components.item-qty.qty-by-item-size', ['item_id' => $item->id, 'size_id' => $sizes->size_id]) --}}
                 </td>
             </tr>
-                
+
             @endforeach
 
-                 
-            
 
-               
-                
-                
 
-              
+
+
+
+
+
+
             </tbody>
 
         </table>
@@ -74,7 +74,7 @@
 
   @endforeach
 
-  
+
 
 </body>
 </html>
