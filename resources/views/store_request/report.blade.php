@@ -71,7 +71,7 @@
             <div class="col-12 mt-2">
 
                 <div class="col-12 bg-info border border-secondary"><strong><p>REASON FOR REQUEST:</p></strong></div>
-                <div class="col-12 border border-secondary p-2">For Guests from Red Mills</h4></div>
+                <div class="col-12 border border-secondary p-2">{{ $store_request->remark }}</h4></div>
 
             </div>
 
@@ -139,9 +139,8 @@
 
       </div>
 
-      <div class="col-12 mt-1 d-flex justify-content-center">
-        <img src="/images/bottomLogo.png" />
-
+      <div class="col-12 d-flex justify-content-center align-items-bottom">
+        <img src="/images/bottomLogo.png" class="img-fuild"/>
     </div>
 
 
