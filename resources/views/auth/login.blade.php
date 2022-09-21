@@ -8,7 +8,7 @@
 
 
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header h3">ALS-STOCK MANAGEMENT</div>
 
                 <div class="card-body d-flex flex-wrap">
 
@@ -65,6 +65,8 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
                                     </button>
+
+                                    <a name="" id="" class="btn btn-primary" href="{{route('store')}}" role="button">Gues Log In</a>
 
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
