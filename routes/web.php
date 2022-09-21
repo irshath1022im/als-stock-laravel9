@@ -9,6 +9,7 @@ use App\Http\Controllers\StoreReuqestController;
 use App\Models\Item;
 use App\Models\Store;
 use App\Models\StoreReuqest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,3 +84,7 @@ Route::get('/print/storeRequest/{id}', function($id){
 
     return view('store_request.report',['store_request' => $result]);
 })->name('printStoreRequest');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

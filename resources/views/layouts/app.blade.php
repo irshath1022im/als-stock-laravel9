@@ -29,7 +29,6 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
@@ -41,59 +40,35 @@
                       <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('category.index') }}" >CATEGORY</a>
                       </li>
-
-
                       <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('items.index') }}" >ITEMS</a>
                       </li>  <li class="nav-item">
                         {{-- <a class="nav-link text-white" href="{{route('storeRequest.index')}}" >STORE REQUEST</a> --}}
                       </li>
-
                       {{-- </li>  <li class="nav-item">
                           <a class="nav-link text-white" href="#" >RECEIVING</a>
                         </li> --}}
-
                     </li>  <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('storeRequest.index') }}" >STORE REQUEST</a>
                       </li>
-
                       </li>  <li class="nav-item">
                         <a class="nav-link text-white" href="#" >REPORTS</a>
                       </li>
-
-
-
                       @auth
                                 <form method="post" action="#">
                                 @csrf
                                     <button type="submit" class="btn btn-outline-danger" style="color: rgb(254,254,254);">LOGOUT</button>
                                 </form>
                       @endauth
-
                     </ul>
-
                 </div>
-
             </div>
         </nav>
     </section>
-
     <section class="container mt-2">
-
       @yield('content')
-
     </section>
-
-
-
-
 @livewireScripts
-
 <script src="{{ asset('js/app.js') }}"></script>
-
-
-
-
-
 </body>
 </html>

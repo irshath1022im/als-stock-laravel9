@@ -3,7 +3,16 @@
 
     <div class="card">
         <div class="card-header">
-            <div class="card-title">ITEMS <a name="" id="" class="btn btn-primary" href="{{ route('items.create') }}" role="button">NEW</a></div>
+            <div class="card-title">ITEMS
+
+                {{-- {{ dd(Auth::user()) }} --}}
+               @if (isset(Auth::user()->id) && Auth::user()->id == 1)
+
+               <a name="" id="" class="btn btn-primary" href="{{ route('items.create') }}" role="button">NEW</a>
+               @endif
+
+
+            </div>
         </div>
     <div class="card-body">
 
