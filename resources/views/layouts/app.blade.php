@@ -34,32 +34,47 @@
                       <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="/">HOME</a>
                       </li>
-                      {{-- <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('store') }}" >STORE</a>
-                      </li> --}}
-                      <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('category.index') }}" >CATEGORY</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('items.index') }}" >ITEMS</a>
-                      </li>  <li class="nav-item">
-                        {{-- <a class="nav-link text-white" href="{{route('storeRequest.index')}}" >STORE REQUEST</a> --}}
-                      </li>
-                      {{-- </li>  <li class="nav-item">
-                          <a class="nav-link text-white" href="#" >RECEIVING</a>
-                        </li> --}}
-                    </li>  <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('storeRequest.index') }}" >STORE REQUEST</a>
-                      </li>
-                      </li>  <li class="nav-item">
-                        <a class="nav-link text-white" href="#" >REPORTS</a>
-                      </li>
+
                       @auth
-                                <form method="post" action="#">
+
+
+                            {{-- <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('store') }}" >STORE</a>
+                            </li> --}}
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('category.index') }}" >CATEGORY</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('items.index') }}" >ITEMS</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('storeRequest.index') }}" >STORE REQUEST</a>
+                            </li>
+
+                            </li>  <li class="nav-item">
+                                <a class="nav-link text-white" href="#" >REPORTS</a>
+                            </li>
+
+                            <form method="post" action="{{ route('logout') }}">
                                 @csrf
                                     <button type="submit" class="btn btn-outline-danger" style="color: rgb(254,254,254);">LOGOUT</button>
-                                </form>
-                      @endauth
+                            </form>
+
+                            @endauth
+
+                       @guest
+                            </li>  <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('login') }}" >LOGIN</a>
+                            </li>
+                       @endguest
+
+
+
+
+
+
                     </ul>
                 </div>
             </div>
