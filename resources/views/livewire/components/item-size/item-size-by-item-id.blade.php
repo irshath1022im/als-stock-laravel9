@@ -23,15 +23,21 @@
 
                             {{-- this btn will send item id and item size id to for create transection form --}}
 
+                            @auth
+
                             <button class="btn btn-danger btn-sm"
                                 data-bs-toggle="modal" data-bs-target="#addTransection"
                                 wire:click="$emit('dataForTransectionForm', {{ $item_id }} , {{ $item_size->id }})"
                             >+</button>
 
+                            @endauth
+
                             <button class="btn btn-light" >
                             <span class="badge bg-primary">SIZE ID : {{ $item_size->id }}</span>
                             {{ $item_size->size->size }}
                            </button>
+
+
 
                             {{-- <span class="badge
                                 @if (count($item_size->transectionLogs) > 0)
@@ -130,7 +136,12 @@
                 </div>
                 <div class="modal-body">
 
-                            @livewire('components.transections.create-form')
+                    @auth
+
+                        @livewire('components.transections.create-form')
+
+                    @endauth
+
 
 
                 </div>

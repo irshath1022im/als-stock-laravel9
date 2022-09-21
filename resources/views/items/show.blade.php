@@ -2,9 +2,9 @@
 
 @section('content')
 
-@component('components.alert')
+    @component('components.alert')
 
-@endcomponent
+    @endcomponent
 
 
    <div class="row">
@@ -14,9 +14,12 @@
            {{-- {{ $item->thumbnail }} --}}
             <img src= {{  Storage::url($item->thumbnail) }} class="img-fluid" class="w-25"/>
 
+            @auth
+
             <a href="{{ route('items.edit', ['item' => $item->id ]) }}">
                 <button class="btn btn-sm btn-outline-info">Edit</button>
             </a>
+            @endauth
 
        </div>
 
@@ -28,10 +31,13 @@
             LOGS
           </button>
 
+          @auth
+
           <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#addSizeId">
             NEW ITEM SIZE
           </button>
 
+          @endauth
 
           @livewire('components.item-size.item-size-by-item-id', ['item_id' => $item->id])
 
