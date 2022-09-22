@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-})->name('store');
+})->name('home');
 
 
 
@@ -47,9 +47,10 @@ Route::get('/store/{id}', function($id){
 });
 
 
-Route::resource('/category', CategoryController::class);
+
+Route::resource('/category', CategoryController::class)->middleware('auth');
 Route::resource('/items', ItemController::class);
-Route::resource('/itemSize', ItemSizeController::class);
+Route::resource('/itemSize', ItemSizeController::class)->middleware('auth');
 
 // Route::resource('/itemTransectionLogs', ItemTransectionLogsController::class);
 // Route::get('/qtyByItemSize', ItemTransectionLogsController)
@@ -59,9 +60,9 @@ Route::controller(ItemTransectionLogsController::class)->group(function () {
     // Route::post('/orders', 'store');
 });
 
-Route::resource('/admin/sizes', SizeController::class);
+Route::resource('/admin/sizes', SizeController::class)->middleware('auth');
 
-Route::resource('storeRequest', StoreReuqestController::class);
+Route::resource('storeRequest', StoreReuqestController::class)->middleware('auth');
 
 Route::get('/reports/uniforms', function(){
     $result = Item::with(['itemSize' => function($query){
@@ -72,7 +73,7 @@ Route::get('/reports/uniforms', function(){
 
 
     return view('reports.uniform', ['items' => $result]);
-});
+})->middleware('auth');
 
 Route::get('/print/storeRequest/{id}', function($id){
 
@@ -83,8 +84,8 @@ Route::get('/print/storeRequest/{id}', function($id){
     }])->findOrFail($id);
 
     return view('store_request.report',['store_request' => $result]);
-})->name('printStoreRequest');
+})->name('printStoreRequest')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('ath');

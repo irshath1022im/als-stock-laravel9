@@ -34,5 +34,8 @@
 </div> --}}
 
 
-@livewire('home')
+        @livewire('home')
+
+
+
 @endsection

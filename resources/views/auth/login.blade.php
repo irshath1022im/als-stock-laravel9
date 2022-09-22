@@ -66,7 +66,7 @@
                                         {{ __('Login') }}
                                     </button>
 
-                                    <a name="" id="" class="btn btn-primary" href="{{route('store')}}" role="button">Gues Log In</a>
+                                    <a name="" id="" class="btn btn-primary" href="{{route('home')}}" role="button">Gues Log In</a>
 
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
