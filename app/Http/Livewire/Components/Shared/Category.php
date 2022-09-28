@@ -33,7 +33,8 @@ class Category extends Component
         if(isset($this->store))
         {
 
-            $result = ModelsCategory::where('store_id' , $this->store)->get();
+            $result = ModelsCategory::where('store_id' , $this->store)->withCount('items')->get();
+            // dd($result);
         }
 
         else {

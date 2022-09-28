@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Items;
 use App\Models\Category;
 use App\Models\Item;
 use App\Models\Store;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -29,12 +30,12 @@ class CreateItem extends Component
     ];
 
 
-    
+
 
     public function AddNewItem()
     {
 
-       
+
         // dd($fileExtention);
 
                  $validated = $this->validate();
@@ -42,7 +43,8 @@ class CreateItem extends Component
                  $data = [
                     'item' => $this->item,
                     'category_id' => $this->category_id,
-                    'thumbnail' => ''
+                    'thumbnail' => '',
+                    'user_id' => Auth::user()->id
                 ];
 
                  $result = Item::create($data);
@@ -61,7 +63,7 @@ class CreateItem extends Component
              session()->flash('created', 'Item Has been added');
              redirect('items/'.$result->id.' ');
 
-        
+
 
 
     }
@@ -74,16 +76,16 @@ class CreateItem extends Component
                 'category_id' => 'required',
             ]);
 
-        
+
         if($this->thumbnail)
         {
             $fileExtention = $this->thumbnail->getClientOriginalExtension();
 
             $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item_id.'.'.$fileExtention);
         }
-     
 
-              
+
+
 
             Item::where('id', $this->item_id)
             ->update([
@@ -95,7 +97,7 @@ class CreateItem extends Component
         session()->flash('created', 'Item Has been Updated');
             //  route('items.show', ['item' => $id ];
         redirect('items/'.$this->item_id.' ');
-   
+
 
     }
 
@@ -106,7 +108,7 @@ class CreateItem extends Component
 
     //     $this->filePath = Storage::disk('public')->putFileAs('itemCoverPhotos', $this->thumbnail, $this->item.'.'.$fileExtention);
 
-        
+
     // }
 
 

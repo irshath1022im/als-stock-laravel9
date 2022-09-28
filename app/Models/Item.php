@@ -9,7 +9,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['item', 'category_id', 'thumbnail'];
+    protected $fillable = ['item', 'category_id', 'thumbnail','user_id'];
 
     public function itemSize()
     {

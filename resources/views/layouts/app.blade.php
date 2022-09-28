@@ -21,14 +21,15 @@
 
     <section class="">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-secondary"">
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                        <img src="/images/alshahania-logo.png" alt="" class="w-50 d-inline-block align-text-top" />
+                        <img src="/images/logo.png" alt="" class="w-25 d-inline-block align-text-top" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
@@ -61,6 +62,8 @@
                                 @csrf
                                     <button type="submit" class="btn btn-outline-danger" style="color: rgb(254,254,254);">LOGOUT</button>
                             </form>
+
+                            <span class="text-white d-flex align-items-center bg-success p-2 border rounded">{{ Auth::user()->name }}</span>
 
                             @endauth
 
