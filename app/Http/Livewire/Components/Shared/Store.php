@@ -8,7 +8,7 @@ use Livewire\Component;
 class Store extends Component
 {
 
-    public $selected_store=1;
+    public $selected_store;
 
 
     public function updatedSelectedStore()

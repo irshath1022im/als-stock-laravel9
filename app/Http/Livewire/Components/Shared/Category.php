@@ -8,7 +8,7 @@ use Livewire\Component;
 class Category extends Component
 {
 
-    public $store=1;
+    public $store;
     public $selected_category;
 
     protected $listeners = ['sentSelectedStore' => 'SelectedStore'];
@@ -24,12 +24,23 @@ class Category extends Component
         $this->emit('sendSelectedCategory', $this->selected_category);
     }
 
-    
+
 
     public function render()
     {
 
-        $result = ModelsCategory::where('store_id' , $this->store)->get();
+
+        if(isset($this->store))
+        {
+
+            $result = ModelsCategory::where('store_id' , $this->store)->get();
+        }
+
+        else {
+             $result = [];
+        }
+
+
         return view('livewire.components.shared.category',['categories' => $result]);
     }
 }
