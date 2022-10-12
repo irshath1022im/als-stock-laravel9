@@ -84,15 +84,24 @@
     <div x-data="{open:  @entangle('isModalOpen')}">
 
 
+
+        {{-- <div class="card">
+            <img class="card-img-top" src="holder.js/100x180/" alt="Title">
+            <div class="card-body">
+                <h4 class="card-title">Title</h4>
+                <p class="card-text">Text</p>
+            </div>
+        </div> --}}
+
         <div
-            class="bg-secondary fixed-top h-100 w-100"
+            class=" card bg-light fixed-top h-100 w-5100"
             x-cloak
             x-show="open"
             @keydown.escape.prevent.stop="open = false"
             >
 
 
-            <div class=""
+            <div class="card-body"
                 @click="open = false"
             >
                 <div

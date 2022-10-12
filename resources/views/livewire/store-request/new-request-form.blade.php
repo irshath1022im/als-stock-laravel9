@@ -31,7 +31,7 @@
 
         <div class="mb-3">
           <label for="" class="form-label">Date</label>
-          <input type="date" class="form-control" wire:model.lazy="date" wire:loading.class="bg-info">
+          <input type="date" class="form-control" wire:model.defer="date" wire:loading.class="bg-info">
 
             @error('date')
                 <div class="alert alert-danger" role="alert">
@@ -43,7 +43,7 @@
 
         <div class="mb-3">
             <label for="" class="form-label">Requested By</label>
-            <select class="form-control" name="" id="" wire:model.lazy="requestedBy">
+            <select class="form-control" name="" id="" wire:model.defer="requestedBy">
               <option>Select</option>
               @foreach ($requesters as $requester)
                 <option>{{ $requester->name }}</option>
@@ -61,7 +61,7 @@
 
           <div class="mb-3">
             <label for="" class="form-label">Approved By</label>
-            <select class="form-control" name="" id="" wire:model.lazy="approvedBy">
+            <select class="form-control" name="" id="" wire:model.defer="approvedBy">
               <option>Select</option>
               <option>Dean Lavy</option>
               <option>Abdul</option>
@@ -77,7 +77,7 @@
 
           <div class="mb-3">
             <label for="" class="form-label">Status</label>
-            <select class="form-control" name="" id="" wire:model.lazy="status">
+            <select class="form-control" name="" id="" wire:model.defer="status">
               <option>Select</option>
               <option>Requested</option>
               <option>Approved</option>
@@ -93,7 +93,7 @@
 
           <div class="mb-3">
             <label for="" class="form-label">Remark</label>
-            <textarea class="form-control" wire:model.lazy="remark" rows="3"></textarea>
+            <textarea class="form-control" wire:model.defer="remark" rows="3"></textarea>
           </div>
 
 
