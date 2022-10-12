@@ -53,14 +53,30 @@
 
                                 @endforeach
 
-                                @for ($i = count($store_request->storeRequestItems)+1; $i <= 12; $i++)
-                                        <tr class="">
-                                            <td scope="row"><strong>{{ $i }}</strong></td>
-                                            <td colspan="3" scope="row"></td>
-                                            <td scope="row"></td>
-                                            <td scope="row"></td>
-                                            <td scope="row"></td>
-                                        </tr>
+                                @for ($i = count($store_request->storeRequestItems)+1; $i <= 10; $i++)
+                                            @if ($i == count($store_request->storeRequestItems)+1)
+                                                <tr class="">
+                                                    <td scope="row"><strong>{{ $i }}</strong></td>
+                                                    <td colspan="3" scope="row">**********************</td>
+                                                    <td scope="row">*********</td>
+                                                    <td scope="row">*********</td>
+                                                    <td scope="row">*********</td>
+                                                </tr>
+
+                                                @else
+
+
+
+
+                                                    <tr class="">
+                                                        <td scope="row"><strong>{{ $i }}</strong></td>
+                                                        <td colspan="3" scope="row"></td>
+                                                        <td scope="row"></td>
+                                                        <td scope="row"></td>
+                                                        <td scope="row"></td>
+                                                    </tr>
+
+                                    @endif
                                 @endfor
 
                             </tbody>
@@ -139,7 +155,7 @@
 
       </div>
 
-      <div class="col-12 d-flex justify-content-center align-items-bottom">
+      <div class="col-12 d-flex justify-content-center align-items-bottom mt-3">
         <img src="/images/bottomLogo.png" class="img-fuild"/>
     </div>
 
