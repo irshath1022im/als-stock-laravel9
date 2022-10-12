@@ -43,7 +43,7 @@
                             <tbody>
                                 @foreach ($store_request->storeRequestItems as $item)
                                 <tr class="">
-                                    <td scope="row"><strong>{{ $item->id}}</strong></td>
+                                    <td scope="row"><strong>{{ $loop->iteration }}</strong></td>
                                     <td colspan="3" scope="row" class="small">{{ $item->itemSize->item->item}}</td>
                                     <td scope="row" class="small">{{ $item->itemSize->size->size}}</td>
                                     <td scope="row" class="small">{{ $item->qty}}</td>
